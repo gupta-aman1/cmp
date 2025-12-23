@@ -25,6 +25,7 @@ class AppNavigatorState(
         if (_stack.value.size > 1) {
             _stack.value = _stack.value.dropLast(1)
         }
+
     }
 
     /** 🔥 ENTERPRISE: clear backstack (popInclusive) */
