@@ -49,5 +49,4 @@ fun DashboardTopBar(name: String, company: String, isDark: Boolean) {
             }
         }
     }
-}class DashboardTopBar {
 }

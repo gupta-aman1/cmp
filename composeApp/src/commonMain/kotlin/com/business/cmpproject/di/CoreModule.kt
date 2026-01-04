@@ -14,11 +14,13 @@ import com.business.cmpproject.domain.repository.dashboard.DashboardRepository
 import com.business.cmpproject.domain.repository.dashboard.DashboardRepositoryImpl
 import com.business.cmpproject.domain.repository.plan.PlanRepository
 import com.business.cmpproject.domain.repository.plan.PlanRepositoryImpl
+import com.business.cmpproject.presentation.features.ProfileScreenModel
 import com.business.cmpproject.presentation.features.home.HomeScreenModel
 import com.business.cmpproject.presentation.features.login.LoginScreenModel
 import com.business.cmpproject.presentation.features.otp.OtpScreenModel
 import com.business.cmpproject.presentation.features.plans.CustomerPlansScreenModel
 import com.business.cmpproject.presentation.features.splash.SplashScreenModel
+import com.business.cmpproject.presentation.features.statusTracking.PlanTrackingScreenModel
 import org.koin.dsl.module
 
 val coreModule = module {
@@ -52,6 +54,8 @@ val coreModule = module {
     factory { SplashScreenModel(get()) }
     factory { HomeScreenModel(get()) }
     factory { CustomerPlansScreenModel(get()) }
+    factory { PlanTrackingScreenModel(get()) }
+    factory { ProfileScreenModel(get()) }
     factory { LoginScreenModel(get(), get(), get()) }
     factory { OtpScreenModel(get(), get(),) }
 }

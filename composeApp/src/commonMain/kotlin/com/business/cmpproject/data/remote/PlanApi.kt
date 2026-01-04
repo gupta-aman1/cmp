@@ -5,8 +5,9 @@ import io.ktor.client.HttpClient
 import io.ktor.client.request.post
 import io.ktor.client.request.setBody
 import io.ktor.client.statement.HttpResponse
+import kotlin.text.append
 
-class PlanApi (
+class PlanApi(
     private val client: HttpClient
 ) {
 
@@ -19,7 +20,15 @@ class PlanApi (
     }
 
     suspend fun updatePlan(request: PlanRequest): HttpResponse {
-        return client.post("/api/customer-qty-update-api"){
+        return client.post("/api/customer-qty-update-api") {
             setBody(request)
+        }
+    }
+
+    suspend fun fetchPlanTracking(page: Int): HttpResponse {
+        return client.post("/api/customer-upgrade-request-api"){
+            url {
+               parameters.append("page", page.toString())
+            }
         }}
 }
