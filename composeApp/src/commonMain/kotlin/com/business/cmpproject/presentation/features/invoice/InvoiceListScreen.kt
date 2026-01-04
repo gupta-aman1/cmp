@@ -55,7 +55,9 @@ data class InvoiceListScreen(
                     subtitle = "${invoices.size} total",
                     showBack = true, // Explicitly set to true for this screen
                     onBack = { navigator.pop() },
-                    scrollBehavior = scrollBehavior
+                    scrollBehavior = scrollBehavior,
+                    isTitleCenter = false,
+
                 )
 
                 InvoiceListContent(

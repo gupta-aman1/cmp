@@ -19,6 +19,11 @@ class LocalStorage {
     fun saveUser(user: LoginResponse) {
         settings.putString("user", Json.encodeToString(user))
     }
+
+    fun getUser(): LoginResponse? {
+        val userJson = settings.getStringOrNull("user")
+        return if (userJson != null) Json.decodeFromString(userJson) else null
+    }
     fun clear() {
         settings.clear()
     }
