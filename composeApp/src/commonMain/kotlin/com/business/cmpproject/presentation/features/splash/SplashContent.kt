@@ -10,6 +10,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.business.cmpproject.composeapp.generated.resources.Res
+import com.business.cmpproject.composeapp.generated.resources.app_logo
 import com.business.cmpproject.composeapp.generated.resources.splash_logo
 import kotlinx.coroutines.delay
 import org.jetbrains.compose.resources.painterResource
@@ -38,10 +39,10 @@ fun SplashContent(
 
             // 🔹 App Logo
             Image(
-                painter = painterResource(Res.drawable.splash_logo),
+                painter = painterResource(Res.drawable.app_logo),
                 contentDescription = "App Logo",
                 modifier = Modifier
-                    .size(120.dp)
+                    .size(70.dp).padding(5.dp)
             )
 
             // 🔹 App Name / Logo Placeholder
