@@ -1,5 +1,6 @@
 package com.business.cmpproject.presentation.features.ticket
 
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 
@@ -10,4 +11,6 @@ fun TicketHistoryContent(viewModel: TicketScreenModel) {
     {
 
     }
+
+    Text("Hello Android")
 }
