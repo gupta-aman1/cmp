@@ -10,12 +10,6 @@ import io.ktor.http.contentType
 
 class TicketApi(private val client: HttpClient) {
 
-    /*suspend fun login(request: LoginRequest): HttpResponse {
-        return client.post("/api/customer/signin") {
-            contentType(ContentType.Application.Json)
-            setBody(request)
-        }
-    }*/
 
 
     suspend fun fetchTicketListFromApi(): HttpResponse {

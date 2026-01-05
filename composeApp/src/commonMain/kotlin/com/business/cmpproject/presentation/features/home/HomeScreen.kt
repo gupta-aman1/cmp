@@ -60,6 +60,7 @@ class HomeScreen : Screen {
                 }
 
                 UiState.Idle -> TODO()
+                else -> {}
             }
         }
     }

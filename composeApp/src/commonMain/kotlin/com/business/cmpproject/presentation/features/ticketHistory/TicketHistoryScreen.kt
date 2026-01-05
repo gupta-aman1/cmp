@@ -15,6 +15,8 @@ data class TicketHistoryScreen(val ticketId: Int) : Screen {
 
     @Composable
     override fun Content() {
+
+
         // Koin se ScreenModel mangte waqt ticketId pass karo
         val screenModel = getScreenModel<TicketHistoryScreenModel> { parametersOf(ticketId) }
         val uiState by screenModel.state.collectAsState()

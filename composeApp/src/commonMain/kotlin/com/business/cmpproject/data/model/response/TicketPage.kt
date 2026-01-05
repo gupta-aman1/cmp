@@ -9,31 +9,31 @@ data class TicketPage(
     val currentPage: Int,
 
     val data: List<TicketData>,
-//
-//    @SerialName("first_page_url")
-//    val firstPageUrl: String? = null,
-//
-//    val from: Int? = null,
-//
-//    @SerialName("last_page")
-//    val lastPage: Int? = null,
-//
-//    @SerialName("last_page_url")
-//    val lastPageUrl: String? = null,
-//
-//    @SerialName("next_page_url")
-//    val nextPageUrl: String? = null,
-//
-//    @SerialName("prev_page_url")
-//    val prevPageUrl: String? = null,
-//
-//    val path: String? = null,
-//
-//    @SerialName("per_page")
-//    val perPage: Int? = null,
-//
-//    val to: Int? = null,
-//    val total: Int? = null
+
+    @SerialName("first_page_url")
+    val firstPageUrl: String? = null,
+
+    val from: Int? = null,
+
+    @SerialName("last_page")
+    val lastPage: Int? = null,
+
+    @SerialName("last_page_url")
+    val lastPageUrl: String? = null,
+
+    @SerialName("next_page_url")
+    val nextPageUrl: String? = null,
+
+    @SerialName("prev_page_url")
+    val prevPageUrl: String? = null,
+
+    val path: String? = null,
+
+    @SerialName("per_page")
+    val perPage: Int? = null,
+
+    val to: Int? = null,
+    val total: Int? = null
 )
 
 

@@ -75,6 +75,7 @@ class PlanTrackingScreen : Screen {
                     }
                     is UiState.Error -> { /* Error View */ }
                     UiState.Idle -> TODO()
+                    else -> {}
                 }
             }
         }

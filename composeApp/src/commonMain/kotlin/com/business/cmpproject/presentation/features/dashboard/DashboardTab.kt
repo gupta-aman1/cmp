@@ -16,6 +16,7 @@ import com.business.cmpproject.presentation.features.profile.ProfileScreen
 
 import com.business.cmpproject.presentation.features.home.HomeScreen
 import com.business.cmpproject.presentation.features.plans.CustomerPlansScreen
+import com.business.cmpproject.presentation.features.ticket.TicketHistoryList
 
 
 object HomeTab : Tab {
@@ -55,7 +56,9 @@ object TicketsTab : Tab {
         }
 
     @Composable
-    override fun Content() { Text("Support Tickets Screen") }
+    override fun Content() {
+        TicketHistoryList().Content()
+    }
 }
 
 // 4. Plans Tab

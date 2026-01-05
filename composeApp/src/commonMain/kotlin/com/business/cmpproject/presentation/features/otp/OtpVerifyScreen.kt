@@ -7,7 +7,7 @@ import cafe.adriel.voyager.navigator.LocalNavigator
 import com.business.cmpproject.core.state.UiState
 import com.business.cmpproject.presentation.components.AppScaffold
 import com.business.cmpproject.presentation.features.dashboard.DashboardScreen
-import com.business.cmpproject.presentation.features.ticket.TicketHistoryScreen
+import com.business.cmpproject.presentation.features.ticketHistory.TicketHistoryScreen
 
 class OtpVerifyScreen(
     private val mobile: String
@@ -36,7 +36,7 @@ class OtpVerifyScreen(
                 viewModel = viewModel,
                 onOtpVerifySuccess = {
                    // navigator.replace(DashboardScreen())
-                    navigator.push(TicketHistoryScreen())
+                  //  navigator.push(TicketHistoryScreen())
                 },
             )
 

@@ -11,7 +11,7 @@ import com.business.cmpproject.data.model.response.TicketPage
 interface TicketRepository {
 
 
-    suspend fun getTicketList(): NetworkResult<TicketPage>
+    suspend fun getTicketList(page: Int): NetworkResult<TicketPage>
 
    /* suspend fun sendOtp(
         mobile: String

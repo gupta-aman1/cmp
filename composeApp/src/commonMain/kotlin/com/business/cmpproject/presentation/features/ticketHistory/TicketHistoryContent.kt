@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.unit.dp
 import com.business.cmpproject.core.state.UiState
+import com.business.cmpproject.core.state.UiStatePagination
 import com.business.cmpproject.data.model.response.TicketHistoryItem
 import com.business.cmpproject.presentation.components.FullScreenError
 import com.business.cmpproject.presentation.components.StandardTopAppBar
@@ -76,6 +77,10 @@ fun TicketHistoryContent(
                 }
                 is UiState.Error -> { /* Error Layout */ }
                 UiState.Idle -> TODO()
+                is UiStatePagination.Error -> TODO()
+                UiStatePagination.Idle -> TODO()
+                UiStatePagination.Loading -> TODO()
+                is UiStatePagination.Success<*> -> TODO()
             }
         }
     }

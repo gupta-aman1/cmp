@@ -13,7 +13,7 @@ class TicketRepositoryImpl(
     private val api: TicketApi
 ) : TicketRepository {
 
-    override suspend fun getTicketList(): NetworkResult<TicketPage> {
+    override suspend fun getTicketList(page: Int): NetworkResult<TicketPage> {
         return blindApiCall { api.fetchTicketListFromApi() }
     }
 
