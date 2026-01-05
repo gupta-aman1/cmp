@@ -1,4 +1,4 @@
-package com.business.cmpproject.presentation.features
+package com.business.cmpproject.presentation.features.profile
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.isSystemInDarkTheme
