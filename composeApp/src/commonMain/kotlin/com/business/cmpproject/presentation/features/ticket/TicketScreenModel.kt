@@ -8,6 +8,7 @@ import com.business.cmpproject.core.state.UiState
 import com.business.cmpproject.core.storage.LocalStorage
 import com.business.cmpproject.data.model.response.PlanResponse
 import com.business.cmpproject.data.model.response.Ticket
+import com.business.cmpproject.data.model.response.TicketData
 import com.business.cmpproject.domain.repository.AuthRepository
 import com.business.cmpproject.domain.repository.ticket.TicketRepository
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -18,8 +19,8 @@ class TicketScreenModel(private val repo: TicketRepository,
                         private val storage: LocalStorage): BaseScreenModel() {
 
 
-    private val _state = MutableStateFlow<UiState<List<Ticket>>>(UiState.Loading)
-    val state: StateFlow<UiState<List<Ticket>>> = _state
+    private val _state = MutableStateFlow<UiState<List<TicketData>>>(UiState.Loading)
+    val state: StateFlow<UiState<List<TicketData>>> = _state
 
 
     init {
@@ -28,13 +29,14 @@ class TicketScreenModel(private val repo: TicketRepository,
     }
 
     fun loadTicketHistory() {
+
         screenModelScope.launch {
             _state.value = UiState.Loading
             try {
                 when (val result = repo.getTicketList()) {
                     is NetworkResult.Success -> {
                         //sendEvent(UiEvent.ShowSnackBar(result.data, false))
-                        _state.value = UiState.Success(result.data)
+                        _state.value = UiState.Success(result.data.data)
                     }
 
                     is NetworkResult.Failure -> {

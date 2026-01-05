@@ -5,11 +5,13 @@ import com.business.cmpproject.data.model.request.LoginRequest
 import com.business.cmpproject.data.model.response.LoginResponse
 import com.business.cmpproject.data.model.response.PlanResponse
 import com.business.cmpproject.data.model.response.Ticket
+import com.business.cmpproject.data.model.response.TicketData
+import com.business.cmpproject.data.model.response.TicketPage
 
 interface TicketRepository {
 
 
-    suspend fun getTicketList(): NetworkResult<List<Ticket>>
+    suspend fun getTicketList(): NetworkResult<TicketPage>
 
    /* suspend fun sendOtp(
         mobile: String
