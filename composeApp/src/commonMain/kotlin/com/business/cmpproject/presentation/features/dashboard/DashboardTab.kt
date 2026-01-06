@@ -16,6 +16,7 @@ import com.business.cmpproject.presentation.features.profile.ProfileScreen
 
 import com.business.cmpproject.presentation.features.home.HomeScreen
 import com.business.cmpproject.presentation.features.plans.CustomerPlansScreen
+import com.business.cmpproject.presentation.features.serviceRequest.ServiceRequestScreen
 import com.business.cmpproject.presentation.features.ticket.TicketHistoryList
 
 
@@ -70,7 +71,9 @@ object ServicesTab : Tab {
         }
 
     @Composable
-    override fun Content() { Text("Active Plans Screen") }
+    override fun Content() {
+        ServiceRequestScreen().Content()
+    }
 }
 
 // 5. Profile Tab

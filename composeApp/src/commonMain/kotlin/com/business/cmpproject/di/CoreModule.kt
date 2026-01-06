@@ -8,14 +8,17 @@ import com.business.cmpproject.core.storage.LocalStorage
 import com.business.cmpproject.data.remote.AuthApi
 import com.business.cmpproject.data.remote.DashboardApi
 import com.business.cmpproject.data.remote.PlanApi
+import com.business.cmpproject.data.remote.ServiceRequestApi
 import com.business.cmpproject.data.remote.TicketApi
 import com.business.cmpproject.data.remote.TicketTrackingApi
-import com.business.cmpproject.domain.repository.AuthRepository
-import com.business.cmpproject.domain.repository.AuthRepositoryImpl
+import com.business.cmpproject.domain.repository.login.AuthRepository
+import com.business.cmpproject.domain.repository.login.AuthRepositoryImpl
 import com.business.cmpproject.domain.repository.dashboard.DashboardRepository
 import com.business.cmpproject.domain.repository.dashboard.DashboardRepositoryImpl
 import com.business.cmpproject.domain.repository.plan.PlanRepository
 import com.business.cmpproject.domain.repository.plan.PlanRepositoryImpl
+import com.business.cmpproject.domain.repository.serviceRequest.ServiceRequestRepository
+import com.business.cmpproject.domain.repository.serviceRequest.ServiceRequestRepositoryImpl
 import com.business.cmpproject.domain.repository.ticket.TicketDetailsRepository
 import com.business.cmpproject.domain.repository.ticket.TicketDetailsRepositoryImpl
 import com.business.cmpproject.domain.repository.ticket.TicketRepository
@@ -25,6 +28,7 @@ import com.business.cmpproject.presentation.features.home.HomeScreenModel
 import com.business.cmpproject.presentation.features.login.LoginScreenModel
 import com.business.cmpproject.presentation.features.otp.OtpScreenModel
 import com.business.cmpproject.presentation.features.plans.CustomerPlansScreenModel
+import com.business.cmpproject.presentation.features.serviceRequest.ServiceRequestScreenModel
 import com.business.cmpproject.presentation.features.splash.SplashScreenModel
 import com.business.cmpproject.presentation.features.statusTracking.PlanTrackingScreenModel
 import com.business.cmpproject.presentation.features.ticket.TicketScreenModel
@@ -54,6 +58,7 @@ val coreModule = module {
     single { PlanApi(get()) }                    // HttpClient injected
     single { TicketTrackingApi(get()) }                    // HttpClient injected
     single { TicketApi(get()) }                    // HttpClient injected
+    single { ServiceRequestApi(get()) }                    // HttpClient injected
 
     // ---- Repository ----
     single<AuthRepository> { AuthRepositoryImpl(get()) }
@@ -61,6 +66,7 @@ val coreModule = module {
     single<TicketDetailsRepository> { TicketDetailsRepositoryImpl(get()) }
     single<TicketRepository> { TicketRepositoryImpl(get()) }
     single<PlanRepository> { PlanRepositoryImpl(get()) }
+    single<ServiceRequestRepository> { ServiceRequestRepositoryImpl(get()) }
 
     // ---- ViewModels ----
     factory { SplashScreenModel(get()) }
@@ -68,6 +74,7 @@ val coreModule = module {
     factory { CustomerPlansScreenModel(get()) }
     factory { PlanTrackingScreenModel(get()) }
     factory { ProfileScreenModel(get()) }
+    factory { ServiceRequestScreenModel(get()) }
     factory { LoginScreenModel(get(), get(), get()) }
     factory { (ticketId: Int) -> TicketHistoryScreenModel(get(), ticketId) }
     factory { OtpScreenModel(get(), get(),) }
