@@ -1,8 +1,5 @@
-package com.business.cmpproject.data.model.request
-
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-
 
 @Serializable
 data class SupportRequest(
@@ -15,12 +12,19 @@ data class SupportRequest(
     @SerialName("category")
     val category: String,
 
-    @SerialName("subcategory")
-    val subcategory: String,
+    @SerialName("sub_category")
+    val subCategory: String,
+
+    @SerialName("location")
+    val location: String,
+
+    @SerialName("remark")
+    val remark: String,
 
     @SerialName("message")
     val message: String,
-    
+
+    // Image yahan Base64 string format mein jayegi
     @SerialName("image")
     val image: String? = null
 )

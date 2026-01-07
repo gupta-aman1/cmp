@@ -1,6 +1,6 @@
 package com.business.cmpproject.data.remote
 
-import com.business.cmpproject.data.model.request.SupportRequest
+import SupportRequest
 import io.ktor.client.HttpClient
 import io.ktor.client.request.post
 import io.ktor.client.request.setBody

@@ -1,11 +1,11 @@
 package com.business.cmpproject.presentation.features.support
 
+import SupportRequest
 import com.business.cmpproject.core.BaseScreenModel
 import com.business.cmpproject.core.network.NetworkResult
 import com.business.cmpproject.core.state.UiEvent.ShowSnackBar
 import com.business.cmpproject.core.state.UiState
 import com.business.cmpproject.core.storage.LocalStorage
-import com.business.cmpproject.data.model.request.SupportRequest
 import com.business.cmpproject.data.model.response.TicketData
 import com.business.cmpproject.domain.repository.support.SupportRepository
 import com.business.cmpproject.domain.repository.ticket.TicketRepository

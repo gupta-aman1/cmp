@@ -1,5 +1,6 @@
 package com.business.cmpproject.presentation.features.support
 
+import SupportRequest
 import androidx.compose.foundation.background
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
@@ -33,7 +34,6 @@ import cafe.adriel.voyager.koin.getScreenModel
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 import com.business.cmpproject.core.state.UiState
-import com.business.cmpproject.data.model.request.SupportRequest
 import com.business.cmpproject.data.model.response.PlanResponse
 import com.business.cmpproject.presentation.components.AppScaffold
 import com.business.cmpproject.presentation.components.FullScreenError
@@ -54,28 +54,16 @@ class SupportScreen: Screen {
     override fun Content() {
         val navigator = LocalNavigator.currentOrThrow
         val isDark = isSystemInDarkTheme()
-       // val rootNavigator = navigator.parent ?: navigator
+        // val rootNavigator = navigator.parent ?: navigator
         val screenModel = getScreenModel<SupportScreenModel>()
-        val customerPlanScreenModel = getScreenModel<CustomerPlansScreenModel>()
+         val customerPlanScreenModel = getScreenModel<CustomerPlansScreenModel>()
 
         val state by screenModel.state.collectAsState()
         val uiState by customerPlanScreenModel.state.collectAsState()
         val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior()
 
 
-            val request = SupportRequest(
-                altMobile = "9806821832", // Aap ise alag text field se le sakte hain
-                altEmail = "rohitatoms02@gmail.com",
-                category = "",
-                subcategory = "",
-                message = "No message",
-                image = "data:image/png;base64,..." // Yahan aapko image ko Base64 mein convert karna hoga
-            )
-
-            screenModel.submitReport(request)
-
-
-        when (uiState) {
+         when (uiState) {
             is UiState.Loading -> {
                 Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                     CircularProgressIndicator(color = if (isDark) PinkPrimary else GreenPrimary)
@@ -116,9 +104,13 @@ class SupportScreen: Screen {
             }
             else -> Unit
         }
+
+
+
         }
 
 
-}
+
+    }
 
 
