@@ -14,11 +14,18 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.business.cmpproject.core.state.UiState
+import com.business.cmpproject.data.model.response.PlanResponse
 import com.business.cmpproject.data.model.supportmodel.Category
 import com.business.cmpproject.data.model.supportmodel.SubCategory
 
 @Composable
-fun SupportContent() {
+fun SupportContent(locationResp: List<PlanResponse>) {
+
+    // 1. Locations extract karein (Jo null na hon aur unique hon)
+    val locationsList = remember(locationResp) {
+        locationResp.mapNotNull { it.locationName }.distinct()
+    }
     var selectedCategory by remember { mutableStateOf<Category?>(null) }
     var selectedSubCategory by remember { mutableStateOf<SubCategory?>(null) }
 
@@ -27,7 +34,7 @@ fun SupportContent() {
 
 
     // Mock Data
-    val locationsList = listOf("Noida Office", "Delhi Hub", "Gurgaon Site", "Mumbai DataCenter")
+   // val locationsList = listOf("Noida Office", "Delhi Hub", "Gurgaon Site", "Mumbai DataCenter")
     val categories = listOf(
         Category("1", "Network Connectivity Issues", listOf(
             SubCategory("1.1", "Link down/No internet", listOf("Choose Location", "Attach RX Power Snap", "Remark")),

@@ -15,6 +15,8 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.*
 import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.SupportAgent
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
@@ -36,10 +38,13 @@ import cafe.adriel.voyager.koin.getScreenModel
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 import com.business.cmpproject.core.state.UiState
+import com.business.cmpproject.presentation.features.support.SupportContent
+import com.business.cmpproject.presentation.features.support.SupportScreen
 import com.business.cmpproject.presentation.features.ticketHistory.TicketHistoryScreen
 import com.business.cmpproject.presentation.theme.CreamBackground
 import com.business.cmpproject.presentation.theme.DarkBackground
 import com.business.cmpproject.presentation.theme.GreenPrimary
+import com.business.cmpproject.presentation.theme.PinkPrimary
 
 class TicketHistoryList : Screen {
 
@@ -69,6 +74,15 @@ class TicketHistoryList : Screen {
         }
 
         Scaffold(
+            floatingActionButton = {
+                ExtendedFloatingActionButton(
+                    onClick = {   rootNavigator.push(SupportScreen()) },
+                    containerColor = if (isDark) PinkPrimary else GreenPrimary,
+                    contentColor = Color.White,
+                    icon = { Icon(Icons.Default.SupportAgent, contentDescription = null) },
+                    text = { Text("Support") }
+                )
+            },
             containerColor = if (isDark) DarkBackground else CreamBackground,
             contentWindowInsets = WindowInsets(0, 0, 0, 0)
         ) { padding ->

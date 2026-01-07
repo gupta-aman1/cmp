@@ -9,6 +9,7 @@ import com.business.cmpproject.data.remote.AuthApi
 import com.business.cmpproject.data.remote.DashboardApi
 import com.business.cmpproject.data.remote.PlanApi
 import com.business.cmpproject.data.remote.ServiceRequestApi
+import com.business.cmpproject.data.remote.SupportApi
 import com.business.cmpproject.data.remote.TicketApi
 import com.business.cmpproject.data.remote.TicketTrackingApi
 import com.business.cmpproject.domain.repository.login.AuthRepository
@@ -19,6 +20,8 @@ import com.business.cmpproject.domain.repository.plan.PlanRepository
 import com.business.cmpproject.domain.repository.plan.PlanRepositoryImpl
 import com.business.cmpproject.domain.repository.serviceRequest.ServiceRequestRepository
 import com.business.cmpproject.domain.repository.serviceRequest.ServiceRequestRepositoryImpl
+import com.business.cmpproject.domain.repository.support.SupportRepository
+import com.business.cmpproject.domain.repository.support.SupportRepositoryImpl
 import com.business.cmpproject.domain.repository.ticket.TicketDetailsRepository
 import com.business.cmpproject.domain.repository.ticket.TicketDetailsRepositoryImpl
 import com.business.cmpproject.domain.repository.ticket.TicketRepository
@@ -32,6 +35,7 @@ import com.business.cmpproject.presentation.features.serviceRequest.add.RaiseSer
 import com.business.cmpproject.presentation.features.serviceRequest.list.ServiceRequestScreenModel
 import com.business.cmpproject.presentation.features.splash.SplashScreenModel
 import com.business.cmpproject.presentation.features.statusTracking.PlanTrackingScreenModel
+import com.business.cmpproject.presentation.features.support.SupportScreenModel
 import com.business.cmpproject.presentation.features.ticket.TicketScreenModel
 import com.business.cmpproject.presentation.features.ticketHistory.TicketHistoryScreenModel
 import org.koin.dsl.module
@@ -60,6 +64,7 @@ val coreModule = module {
     single { TicketTrackingApi(get()) }                    // HttpClient injected
     single { TicketApi(get()) }                    // HttpClient injected
     single { ServiceRequestApi(get()) }                    // HttpClient injected
+    single { SupportApi(get()) }                    // HttpClient injected
 
     // ---- Repository ----
     single<AuthRepository> { AuthRepositoryImpl(get()) }
@@ -68,6 +73,7 @@ val coreModule = module {
     single<TicketRepository> { TicketRepositoryImpl(get()) }
     single<PlanRepository> { PlanRepositoryImpl(get()) }
     single<ServiceRequestRepository> { ServiceRequestRepositoryImpl(get()) }
+    single<SupportRepository> { SupportRepositoryImpl(get()) }
 
     // ---- ViewModels ----
     factory { SplashScreenModel(get()) }
@@ -76,6 +82,7 @@ val coreModule = module {
     factory { PlanTrackingScreenModel(get()) }
     factory { ProfileScreenModel(get()) }
     factory { ServiceRequestScreenModel(get()) }
+
 // In your Koin Module
     factory { (locId: String, locName: String) ->
         RaiseServiceRequestScreenModel(
@@ -88,4 +95,5 @@ val coreModule = module {
     factory { (ticketId: Int) -> TicketHistoryScreenModel(get(), ticketId) }
     factory { OtpScreenModel(get(), get(),) }
     factory { TicketScreenModel(get(), get(),) }
+    factory { SupportScreenModel(get(),get()) }
 }
